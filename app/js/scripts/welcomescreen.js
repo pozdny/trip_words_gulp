@@ -231,3 +231,6 @@ Framework7.prototype.plugins.welcomescreen = function (app, globalPluginParams) 
     };
 
 };
+module.exports = {
+    welcomescreen_plugin : Framework7.prototype.plugins.welcomescreen
+};

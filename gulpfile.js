@@ -89,7 +89,7 @@ gulp.task('prejs',  function () {
             "lookup": true
         }))
         .pipe(jshint.reporter('default'))
-        .pipe(gulp.dest('app/js'));
+       /* .pipe(gulp.dest('app/js'));*/
 
 });
 gulp.task('deploy', ['prejs'], function () {

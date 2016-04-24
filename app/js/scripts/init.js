@@ -4,11 +4,9 @@
  * Created by user on 21.04.16.
  */
 var f7 = require('framework7');
-var webactivity = require('./webactivity');
 var my_app = require('./MyApp');
+var pages = require('./IndexPageController');
 
-
-console.log('333 ', my_app);
 
 
 var myapp = myapp || {};
@@ -41,6 +39,7 @@ var n = {
         language:"trip_language"
     }
 };
+
 document.addEventListener("DOMContentLoaded", function(event) {
     //storageClear();
     // Init method
@@ -67,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Initialize app
     var fw7App = myApp,
         $$ = Dom7,
-        ipc = new myapp.pages.IndexPageController(fw7App, $$);
+        ipc = new pages.page_index(fw7App, $$);
 
     $$(document.body).on('click','.toolbar .link', function(e){
         closeSettings();

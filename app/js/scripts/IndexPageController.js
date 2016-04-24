@@ -1,5 +1,6 @@
 /*jslint browser: true*/
 /*global console*/
+var welcomescreen_p = require('./welcomescreen');
 
 var myapp = myapp || {};
 myapp.pages = myapp.pages || {};
@@ -26,12 +27,12 @@ myapp.pages.IndexPageController = function (myapp, $$) {
                 id: 'slide0',
                 picture: '<div class="welcome-icon"><i class="icon icon-welcome"></i></div>',
                 text: '',
-                title: '',
+                title: ''
             }
 
         ];
 
-        welcomescreen = myapp.welcomescreen(welcomescreen_slides, options);
+        welcomescreen = welcomescreen_p.welcomescreen_plugin(welcomescreen_slides, options);
         $$(document).on('click', '.tutorial-close-btn', function () {
             welcomescreen.close();
         });
@@ -64,4 +65,7 @@ myapp.pages.IndexPageController = function (myapp, $$) {
 
 
 
+};
+module.exports = {
+    page_index : myapp.pages.IndexPageController
 };
