@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="21px" height="15px" viewBox="0 0 21 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>Photo active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="05b-Photos" transform="translate(-177.000000, -630.000000)" fill="#0076FF">
+            <g id="Bottom-Bar/Tab-Bar-2" transform="translate(0.000000, 618.000000)">
+                <path d="M178.090909,25.8181818 L178,25.9230769 L178,13 L197,13 L197,19.5555556 L193,16 L187,22 L186.414214,21.4142136 L184,19 L178,26 L178.090909,25.8181818 Z M186.477684,19.9776844 C186.810096,19.3944085 187,18.7193815 187,18 C187,15.790861 185.209139,14 183,14 C180.790861,14 179,15.790861 179,18 C179,19.3385177 179.657452,20.5234792 180.667045,21.2495741 L184,17.5 L186.477684,19.9776844 Z M177,13.007484 C177,12.4510659 177.438615,12 177.998746,12 L197.001254,12 C197.552846,12 198,12.4489202 198,13.007484 L198,25.992516 C198,26.5489341 197.561385,27 197.001254,27 L177.998746,27 C177.447154,27 177,26.5510798 177,25.992516 L177,13.007484 Z" id="Photo-active"></path>
+            </g>
+        </g>
+    </g>
+</svg>

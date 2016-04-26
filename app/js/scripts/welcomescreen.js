@@ -8,10 +8,11 @@
  * @author www.timo-ernst.net
  * @license MIT
  */
+
+//console.log(Framework7.prototype);
 Framework7.prototype.plugins.welcomescreen = function (app, globalPluginParams) {
     'use strict';
-
-    // Variables in module scope
+      // Variables in module scope
     var $$ = Dom7,
         t7 = Template7,
         Welcomescreen;
@@ -23,7 +24,7 @@ Framework7.prototype.plugins.welcomescreen = function (app, globalPluginParams) 
         if ($wscreen.length > 0 && $wscreen[0].f7Welcomescreen) { $wscreen[0].f7Welcomescreen.close(); }
     });
 
-    /**
+    /*
      * Represents the welcome screen
      *
      * @class
@@ -226,11 +227,13 @@ Framework7.prototype.plugins.welcomescreen = function (app, globalPluginParams) 
         return self;
     };
 
+
     app.welcomescreen = function (slides, options) {
         return new Welcomescreen(slides, options);
     };
 
 };
+
 module.exports = {
     welcomescreen_plugin : Framework7.prototype.plugins.welcomescreen
 };

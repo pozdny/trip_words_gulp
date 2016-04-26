@@ -1,6 +1,3 @@
-body {
-  background: red; }
-
 /*
 	==================
 	[FONTS]
@@ -30,3 +27,217 @@ body {
   font-size: 13px;
   position: relative;
   font-family: SFUIDisplayRegular; }
+
+.page {
+  background: #F1F1F5; }
+
+/*
+      ==================
+      [LOAD PAGE]
+      ==================
+  */
+.welcomescreen-container .swiper-slide {
+  display: flex;
+  align-items: center; }
+  .welcomescreen-container .swiper-slide .welcome-icon {
+    position: relative;
+    margin: 0 auto; }
+    .welcomescreen-container .swiper-slide .welcome-icon i.icon {
+      width: 150px;
+      height: 150px; }
+      .welcomescreen-container .swiper-slide .welcome-icon i.icon.icon-welcome {
+        background: url("../images/splash_icon.png") no-repeat;
+        background-size: contain; }
+
+/*
+    ==================
+    [LOAD PAGE ANIMATION]
+    ==================
+*/
+.trueAnimation {
+  opacity: 1;
+  -webkit-transition: opacity 500ms linear;
+  transition: opacity 500ms linear; }
+
+.hideAnimation {
+  opacity: 0;
+  -webkit-transition: opacity 500ms linear;
+  transition: opacity 500ms linear; }
+
+.halfAnimation {
+  opacity: 0.4;
+  -webkit-transition: opacity 500ms linear;
+  transition: opacity 500ms linear; }
+
+/*
+      ==================
+      [NAVBAR]
+      ==================
+  */
+.navbar, .subnavbar, .toolbar {
+  background: #FAFAFA; }
+
+.navbar .navbar-inner .back.link {
+  width: 50px; }
+  .navbar .navbar-inner .back.link.active-state {
+    pointer-events: none; }
+
+.navbar .subnavbar {
+  /*&:after{
+          height:0px;
+        }*/ }
+
+.navbar .navbar-inner .icon.icon-back {
+  width: 12px;
+  height: 20px;
+  background: url("../images/icons/back.svg") no-repeat;
+  margin-left: 15px; }
+
+.navbar .navbar-inner .icon.icon-add {
+  width: 21px;
+  height: 21px;
+  background: url("../images/icons/add.svg") no-repeat; }
+
+.navbar .navbar-inner .icon.icon-settings {
+  width: 21px;
+  height: 21px;
+  background: url("../images/icons/settings-icon.svg") no-repeat; }
+
+.navbar .navbar-inner .icon.icon-save {
+  width: 27px;
+  height: 21px;
+  background: url("../images/icons/save.svg") no-repeat; }
+
+.navbar .navbar-inner .icon.icon-diagram {
+  width: 21px;
+  height: 21px;
+  background: url("../images/icons/diagram.png") no-repeat; }
+
+.navbar .navbar-inner .icon.icon-edit {
+  width: 21px;
+  height: 21px;
+  background: url("../images/icons/edit.png") no-repeat; }
+
+.navbar .navbar-inner .icon.icon-calendar-nav {
+  width: 21px;
+  height: 21px;
+  background: url("../images/icons/calendar_nav.svg") no-repeat; }
+
+.navbar .navbar-inner .icon[class*="icon-"] {
+  background-size: 100% 100%;
+  background-position: center center; }
+
+/*
+      ==================
+      [TOOLBAR]
+      ==================
+  */
+.toolbar {
+  font-family: SFUITextRegular; }
+  .toolbar .toolbar-inner .tabbar-label {
+    /*font-size:0.7em;*/ }
+  .toolbar .toolbar-inner .icon {
+    width: 30px;
+    height: 30px;
+    background-position: center center;
+    /*margin-right:40px;*/ }
+    .toolbar .toolbar-inner .icon.icon-home {
+      background: url("../images/icons/home.svg") no-repeat;
+      background-size: 100% auto; }
+    .toolbar .toolbar-inner .icon.icon-photo {
+      background: url("../images/icons/photo.svg") no-repeat;
+      background-size: 25px 25px; }
+    .toolbar .toolbar-inner .icon.icon-statistics {
+      background: url("../images/icons/statistics.svg") no-repeat;
+      background-size: 23px 25px; }
+  .toolbar .toolbar-inner a {
+    color: #929292; }
+  .toolbar .toolbar-inner a.active {
+    color: #0076FF; }
+  .toolbar .toolbar-inner i.icon[class*="icon-"],
+  .toolbar .toolbar-inner a.active i.icon[class*="icon-"] {
+    background-position: 50% 50%;
+    pointer-events: none; }
+  .toolbar .toolbar-inner a.active .icon.icon-home {
+    background: url("../images/icons/home-active.svg") no-repeat;
+    background-size: 100% auto; }
+  .toolbar .toolbar-inner a.active .icon.icon-photo {
+    background: url("../images/icons/photo-active.svg") no-repeat;
+    background-size: 25px 25px; }
+  .toolbar .toolbar-inner a.active .icon.icon-statistics {
+    background: url("../images/icons/statistics-active.svg") no-repeat;
+    background-size: 23px 25px; }
+
+/*
+  ==================
+  [MAIN]
+  ==================
+*/
+/*
+==================
+[GRID]
+==================
+*/
+/* ipad */
+@media (min-height: 787px) and (min-width: 700px) {
+  .welcome-icon {
+    margin: 0 auto; }
+    .welcome-icon i.icon {
+      width: 300px;
+      height: 300px; }
+  .welcomescreen-text {
+    bottom: 155px; }
+  .welcomescreen-title {
+    font-size: 1.8em;
+    top: 155px; }
+  .welcomescreen-container {
+    font-size: 25px; } }
+
+@media (min-width: 768px) {
+  .tabbar .toolbar-inner {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-around;
+    justify-content: space-around; }
+  .tabbar a.tab-link {
+    min-width: 180px; } }
+
+/* iphone6+ */
+@media (min-height: 684px) and (max-width: 627px) {
+  .welcome-icon {
+    margin: 0 auto; }
+    .welcome-icon i.icon {
+      width: 200px;
+      height: 200px; }
+  .welcomescreen-text {
+    bottom: 125px; }
+  .welcomescreen-title {
+    top: 125px; }
+  .welcomescreen-container {
+    font-size: 20px; } }
+
+/* iphone6 */
+@media (max-width: 399px) and (min-width: 360px) {
+  .welcome-icon {
+    margin: 0 auto; }
+    .welcome-icon i.icon {
+      width: 200px;
+      height: 200px; }
+  .welcomescreen-text {
+    bottom: 105px; }
+  .welcomescreen-title {
+    top: 135px; }
+  .welcomescreen-container {
+    font-size: 20px; } }
+
+/* iphone4, iphone5 */
+@media (max-width: 350px) {
+  .welcomescreen-text {
+    bottom: 95px; }
+  .welcomescreen-title {
+    top: 95px; }
+  .welcomescreen-container {
+    font-size: 17px; } }
+
+/* iphone 5 */
+/* iphone 4 */

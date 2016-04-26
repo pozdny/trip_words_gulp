@@ -3,59 +3,28 @@
 /**
  * Created by user on 21.04.16.
  */
-var f7 = require('framework7');
+require('framework7');
+var config = require('./config');
 var my_app = require('./MyApp');
-var pages = require('./IndexPageController');
-
-
-
+var welcomescreen_p = require('./welcomescreen');
+var pages  = require('./IndexPageController');
 var myapp = myapp || {};
-var myApp = new Framework7(
-    {
-        //pushState:true,
-        init:false,
-        //tapHold: true, //enable tap hold events
-        router: true,
-        reloadPages:true,
-        //animateNavBackIcon: true,
-        swipeBackPage: false,
-        // Enable templates auto precompilation
-        precompileTemplates: true,
-        // Enabled pages rendering using Template7
-        template7Pages: true,
-        // Specify Template7 data for pages
-        modalButtonCancel: _w.global.buttons.cancel[LN]
-});
-// global
-var n = {
-    language:'en',
-    platform: "iOS",
-    JSAPI: null,
-    free: false,
-    settings: null,
-    sounds:{},
-    key_storage:{
-        categories:"trip_obj",
-        language:"trip_language"
-    }
-};
+
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    //storageClear();
+    storageClear();
     // Init method
     if(!storageGet(n.key_storage.categories)){
         // заносим категории по умолчанию
-        my_app.createArrayStorage();
+        my_app.createArrayStorage(n);
     }
     else{
         console.log('init');
-
     }
 
     n.JSAPI = JSAPI;
     n.JSAPI.keepScreenOn();
     n.JSAPI.setStatusBarColor("black");
-
 
     if(n.free){
         addPaddingBunner();
@@ -64,13 +33,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     console.log('end ready');
     // Initialize app
+
     var fw7App = myApp,
         $$ = Dom7,
         ipc = new pages.page_index(fw7App, $$);
 
     $$(document.body).on('click','.toolbar .link', function(e){
-        closeSettings();
+        //closeSettings();
     });
+
 });
 window.addEventListener("deviceReadyEvent", function(event) {
     n.sounds.tap = new Sound('sounds/tap.mp3');

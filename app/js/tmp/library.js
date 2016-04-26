@@ -1,4 +1,7 @@
 /* Timeout */
+function xxx(){
+    console.log('888');
+}
 function delyed(obj, time){
     setTimeout(obj, time);
 }

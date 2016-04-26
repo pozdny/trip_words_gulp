@@ -4,7 +4,6 @@
 'use strict';
 //задание языка
 var LN;
-
 LN = navigator.language.substr(0, 2);
 if(LN !== "en" && LN !== "ru"){
     LN = "en";
@@ -24,20 +23,22 @@ var _w = {
         },
         pages_title:{
             en:{
-                index:"Trip Words",
-                calendar: "Calendar",
-                info: "Info",
-                settings: "Settings",
-                calendar_settings: "Configuration",
-                notification: "Notification"
+                index:{
+                    title: "Trip Words",
+                    toolbar: "Home"
+                },
+                photo: "Quick Photo",
+                statistics: "Statistics",
+                settings: "Settings"
             },
             ru:{
-                index:"Trip Words",
-                calendar: "Календарь",
-                info: "Информация",
-                settings: "Настройки",
-                calendar_settings: "Конфигурация",
-                notification: "Уведомление"
+                index:{
+                    title: "Trip Words",
+                    toolbar: "Главная"
+                },
+                photo: "Фото",
+                statistics: "Статистика",
+                settings: "Настройки"
             }
         },
         buttons:{
@@ -123,11 +124,13 @@ var _w = {
     "settings":{
         en:{
             sounds: "Sounds",
-            notifications:"Notifications"
+            notifications:"Notifications",
+            currency: "Currency"
         },
         ru:{
             sounds: "Звуки",
-            notifications:"Напоминания"
+            notifications:"Напоминания",
+            currency: "Валюта"
         }
     },
     "messages":{
@@ -187,6 +190,42 @@ var _w = {
         }
 
 
+    },
+    "categories":{
+        en:[
+            {
+                name:"Travel"
+            },
+            {
+                name:"Hotel"
+            },
+            {
+                name:"Food"
+            },
+            {
+                name:"Vehicles"
+            },
+            {
+                name:"Others"
+            }
+        ],
+        ru:[
+            {
+                name:"Путешествие"
+            },
+            {
+                name:"Отель"
+            },
+            {
+                name:"Еда"
+            },
+            {
+                name:"Локальный транспорт"
+            },
+            {
+                name:"Прочие расходы"
+            }
+        ]
     }
 
 };

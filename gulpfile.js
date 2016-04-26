@@ -2,7 +2,6 @@
  * Created by user on 24.03.16.
  */
 
-
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
@@ -16,6 +15,7 @@ var del = require('del');
 var browserify = require('browserify');
 var gutil = require('gulp-util');
 var source = require('vinyl-source-stream');
+var postcss = require('gulp-postcss');
 /*
 var imagemin = require('gulp-imagemin');
 var babel = require("gulp-babel");
@@ -102,13 +102,24 @@ gulp.task('deploy', ['prejs'], function () {
 // синхронизация окна браузера и изменения файлов
 gulp.task('watch', ['sass'], function(){
     gulp.watch(config.pathDevSCSS, ['sass']);
-    gulp.watch(config.pathDevCSS + '/*.css', browserSync.reload);
+    gulp.watch(config.pathDevCSS + '/*.css', ['css']);
     gulp.watch(globalConfig.baseDir + '/*.html', browserSync.reload);
     gulp.watch(config.pathDevJS + '/scripts/*.js', ['deploy']);
+    gulp.watch(config.pathDevJS + '/tmp/*.js', browserSync.reload);
     gulp.watch(config.pathDevJS + '/*.js', browserSync.reload);
 });
 
-
+gulp.task('css', function () {
+    var cssnext = require('postcss-cssnext');
+    var precss = require('precss');
+    var processors = [cssnext, precss];
+    return gulp.src(config.pathDevCSS + '/*.css')
+        .pipe(postcss(processors))
+        .pipe(gulp.dest(config.pathDevCSS))
+        .pipe(browserSync.reload({
+            stream: true
+        }))
+});
 gulp.task('sass', function() {
     return gulp.src(config.pathDevSCSS)
         .pipe(sass())
@@ -167,6 +178,8 @@ function bundleApp(isProduction) {
             .pipe(source('vendors.js'))
             .pipe(gulp.dest(config.pathDevJS));
         // copy css framework7
+        gulp.src(config.pathFramework7 + '/js/framework7.min.js')
+            .pipe(gulp.dest('app/js/lib/', {}));
         gulp.src(config.pathFramework7 + '/css/framework7.ios.colors.min.css')
             .pipe(gulp.dest('app/css/lib/', {}));
         gulp.src(config.pathFramework7 + '/css/framework7.ios.min.css')

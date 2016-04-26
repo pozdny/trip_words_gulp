@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>Contact Add</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02a-Trip-List-Empty" transform="translate(-9.000000, -32.000000)" fill="#0076FF">
+            <g id="Navigation-Bar/Back">
+                <path d="M20,54 C26.0751322,54 31,49.0751322 31,43 C31,36.9248678 26.0751322,32 20,32 C13.9248678,32 9,36.9248678 9,43 C9,49.0751322 13.9248678,54 20,54 Z M20,53 C25.5228475,53 30,48.5228475 30,43 C30,37.4771525 25.5228475,33 20,33 C14.4771525,33 10,37.4771525 10,43 C10,48.5228475 14.4771525,53 20,53 Z M19.5,42.5 L19.5,37.5 L20.5,37.5 L20.5,42.5 L25.5,42.5 L25.5,43.5 L20.5,43.5 L20.5,48.5 L19.5,48.5 L19.5,43.5 L14.5,43.5 L14.5,42.5 L19.5,42.5 Z" id="Contact-Add"></path>
+            </g>
+        </g>
+    </g>
+</svg>
