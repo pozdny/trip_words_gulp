@@ -9,16 +9,21 @@ Framework7.prototype.plugins.settings = function (app, globalPluginParams) {
         t7 = Template7,
         Settings_loc;
     Settings_loc = function (options) {
-        this.data = { };
+        this.data = {
+            currentCurrency: 0,
+            currencyArr: getCurrency()
+        };
 
         var self = this,
             defaultTemplate,
             template,
             container,
             parentContainer,
+            mainPagesContainer,
             storage,
             soundsBlock,
             notificationsBlock,
+            currencyBlock,
             iconSounds,
             iconNotifications,
             checkBoxSounds,
@@ -28,6 +33,7 @@ Framework7.prototype.plugins.settings = function (app, globalPluginParams) {
             if(storageGet(n.key_storage.categories)){
                 storage = storageGet(n.key_storage.categories);
             }
+            self.data.currentCurrency = storage.settings.currency;
         }
         function getSettings(){
             getStorage();
@@ -45,13 +51,18 @@ Framework7.prototype.plugins.settings = function (app, globalPluginParams) {
                 status: storage.settings.notifications,
                 icon: "notifications"
             });
-            obj.push({
-                title: "currency",
-                name: _w.settings[LN].currency,
-                status: storage.settings.currency,
-                icon: "currency"
-            });
+
             return obj;
+        }
+        function getCurrency(){
+            var arr = [];
+            $$.each(_w.currency[LN], function(i, val){
+                arr.push({
+                    name:val.name,
+                    letter:val.letter
+                });
+            });
+            return arr;
         }
         function initFirstStatusForSettings(status, icon, checkbox){
             if(status){
@@ -84,6 +95,7 @@ Framework7.prototype.plugins.settings = function (app, globalPluginParams) {
                 initFirstStatusForSettings(storage.settings.notifications, iconNotifications);
                 storageSet(n.key_storage.categories, storage);
             });
+
         }
         function drowView(){
             getStorage();
@@ -95,6 +107,7 @@ Framework7.prototype.plugins.settings = function (app, globalPluginParams) {
         function initSettingsBlocks(){
             soundsBlock = $$('.li-sounds');
             notificationsBlock = $$('.li-notifications');
+            currencyBlock = $$('.li-currency');
             iconSounds = soundsBlock.find('.icon-sounds');
             iconNotifications = notificationsBlock.find('.icon-notifications');
             checkBoxSounds = soundsBlock.find('input');
@@ -102,16 +115,101 @@ Framework7.prototype.plugins.settings = function (app, globalPluginParams) {
             drowView();
             onChangeButtonAction();
         }
+        function ClickLiAction(){
+            /*var that = $$(this);
+            console.log('click li');
+            //that.off('click', ClickLiAction);
+            var virtual_list = mainPagesContainer.find('.virtual-list');
+            var formData = myApp.formToJSON('.virtual-list');
+            console.log(formData);*/
+        }
+        function initVirtualListClick(pageContainer){
+            /*pageContainer = $$(pageContainer);
+            var list_block;
+            list_block = pageContainer.find('.list-block');
+            console.log(list_block);*/
+            //pageContainer.off('click','.virtual-list li', ClickLiAction);
+            //pageContainer.on('click', '.virtual-list li', ClickLiAction);
+
+        }
+        function getCurrentCurrency(){
+            var str = '';
+            $$.each(self.data.currencyArr, function(i, val){
+                if(i === storage.settings.currency){
+                    str = val.name + " (" + val.letter + ")";
+                }
+            });
+            return str;
+
+        }
+        function initClickDefaultSettings(){
+            var button_block = $$('#clear-settings');
+            button_block.on('click', InitClickDSettings);
+
+        }
+        function InitClickDSettings(){
+            $$(this).off('click', InitClickDSettings);
+            myApp.confirm(_w.messages.default_settings[LN].content, _w.messages.default_settings[LN].title,
+                function (){
+                    storage.settings.notifications = true;
+                    storage.settings.sounds = true;
+                    storage.settings.currency = 0;
+                    storageSet(n.key_storage.categories, storage);
+                    self.init();
+                },
+                function (){
+                    console.log('cancel');
+                    initClickDefaultSettings();
+                }
+            );
+        }
+        self.smartSelectCustomChange = function(pageContainer){
+            pageContainer = $$(pageContainer);
+            var inputs,
+                value;
+            inputs = pageContainer.find('.list-block li input');
+            console.log(inputs);
+            inputs.on('change', function(){
+                console.log($$(this));
+                value = Number($$(this).val());
+                storage.settings.currency = value;
+                storageSet(n.key_storage.categories, storage);
+            });
+
+        };
         self.init = function(){
             var context;
             var activeView = myApp.getCurrentView(3);
             parentContainer = $$(activeView.container).find('.page-settings');
+            mainPagesContainer = $$(activeView.container).find('.pages');
             clearParentContainer(parentContainer);
             context = getSettings();
-            container = $$(template({options: options, li:context}));
+            var options_list = generateArray(1000);
+            var cCur = getCurrentCurrency();
+            container = $$(template({options: options, li:context, options_list:options_list, currentCurrency:cCur}));
             parentContainer.append(container);
             initSettingsBlocks();
+            initClickDefaultSettings();
         };
+
+        function generateArray() {
+            var arr = [];
+            var selected = '';
+            var str;
+            $$.each(self.data.currencyArr, function(i, val){
+                selected = '';
+                if(i === storage.settings.currency){
+                    selected = 'selected';
+                    str = "<option value="+i+" selected >"+ val.name + " (" + val.letter + ")" + "</option>";
+                }
+                else{
+                    str = "<option value="+i+" >"+ val.name + " (" + val.letter + ")" + "</option>";
+                }
+
+                arr.push(str);
+            });
+            return arr.join("");
+        }
 
 
         /**
@@ -126,9 +224,6 @@ Framework7.prototype.plugins.settings = function (app, globalPluginParams) {
                     '{{#each li}}' +
                         '<li class="li-{{title}}">' +
                             '<div class="item-content">' +
-                                '<div class="item-media">' +
-                                    '<i class="icon icon-{{icon}} {{#if status}}active{{/if}}"></i>' +
-                                '</div>' +
                                 '<div class="item-inner">' +
                                     '<div class="item-title label">{{name}}</div>' +
                                     '<div class="item-input">' +
@@ -141,9 +236,25 @@ Framework7.prototype.plugins.settings = function (app, globalPluginParams) {
                             '</div>' +
                         '</li>' +
                     '{{/each}}' +
+                        '<li>' +
+                            '<a href="#" class="item-link smart-select" data-virtual-list="true" data-back-text=" " data-back-on-select="true">' +
+                                '<select name="numbers">' +
+                                    '{{options_list}}' +
+                                '</select>' +
+                                '<div class="item-content">' +
+                                    '<div class="item-inner">' +
+                                        '<div class="item-title">' + _w.settings[LN].currency + '</div>' +
+                                        '<div class="item-after">{{currentCurrency}}</div>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</a>' +
+                        '</li>' +
                     '</ul>' +
-                '</div>';
+                '</div>' +
+                '<p id="clear-settings"><a class="button" href="#">' + _w.global.buttons.clear[LN] + '</a></p>';
+
         }
+
 
         /* Sets the options that were required
          *

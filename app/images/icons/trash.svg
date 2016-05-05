@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="15px" height="21px" viewBox="0 0 15 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>trash-icon@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04a-Create-Expense" transform="translate(-351.000000, -31.000000)" fill="#0076FF">
+            <g id="Navigation-Bar/Back-Trash">
+                <path d="M355.25,32.5 L351.743852,32.5 C351.341479,32.5 351,32.8357864 351,33.25 L351,34 L366,34 L366,33.25 C366,32.8328986 365.666966,32.5 365.256148,32.5 L361.75,32.5 L361.447353,31.8947051 C361.202365,31.4047298 360.552371,31 360.000193,31 L356.999807,31 C356.443717,31 355.799713,31.4005731 355.552647,31.8947051 L355.25,32.5 Z M352,35 L365,35 L364.176478,48.9998738 C364.079012,50.6567977 362.651184,52 360.994202,52 L356.005798,52 C354.345742,52 352.921532,50.6660385 352.823522,48.9998738 L352,35 Z M358,37 L359,37 L359,49 L358,49 L358,37 Z M361,37 L362,37 L361.5,49 L360.5,49 L361,37 Z M355,37 L356,37 L356.5,49 L355.5,49 L355,37 Z" id="trash-icon"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -2,15 +2,14 @@
 /*global console, Framework7, alert, Dom7, Swiper, Template7*/
 
 /**
- * A plugin for Framework7 to show a slideable welcome screen
+ * A plugin for Framework7 to show a  welcome screen
  *
  * @module Framework7/prototype/plugins/welcomescreen
  * @author www.timo-ernst.net
  * @license MIT
  */
 
-//console.log(Framework7.prototype);
-Framework7.prototype.plugins.welcomescreen = function (app, globalPluginParams) {
+module.exports = Framework7.prototype.plugins.welcomescreen = function (app, globalPluginParams) {
     'use strict';
       // Variables in module scope
     var $$ = Dom7,
@@ -234,6 +233,6 @@ Framework7.prototype.plugins.welcomescreen = function (app, globalPluginParams) 
 
 };
 
-module.exports = {
-    welcomescreen_plugin : Framework7.prototype.plugins.welcomescreen
-};
+//module.exports = {
+//    welcomescreen_plugin : myApp.welcomescreen
+//};

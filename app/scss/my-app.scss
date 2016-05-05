@@ -2,6 +2,48 @@ $blue-color: #0076FF;
 $grey-color: #929292;
 $nav-color: #FAFAFA;
 $body-color: #F1F1F5;
+$after-color: #c8c7cc;
+$after-color-light: #e7e6eb;
+$font-family: 'SFUIDisplayRegular';
+$font-family2: 'SFUITextRegular';
+/*
+   ===================
+   [MINXIN]
+   ===================
+*/
+
+@mixin after-light() {
+    content: '';
+    position: absolute;
+    left: auto;
+    bottom: 0;
+    right: 0;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: $after-color-light;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    transform: scaleY(.5);
+}
+@mixin before(){
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    height: 1px;
+    width: 100%;
+    background-color: $after-color;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    transform: scaleY(.5);
+}
 /*
 	==================
 	[FONTS]
@@ -11,6 +53,10 @@ $body-color: #F1F1F5;
 @font-face {
     font-family: SFUIDisplayRegular;
     src: url(../fonts/SFUIDisplay-Regular.otf);
+}
+@font-face {
+    font-family: SFUITextRegular;
+    src: url(../fonts/SFUIText-Regular.otf);
 }
 /*
 	==================
@@ -32,7 +78,7 @@ body {
     overflow: hidden;
     font-size:13px;
     position:relative;
-    font-family: SFUIDisplayRegular;
+    font-family: $font-family;
 }
 .page{
     background:$body-color;
@@ -122,25 +168,11 @@ body {
         height:21px;
         background:url('../images/icons/settings-icon.svg') no-repeat;
     }
-    &.icon-save{
-        width:27px;
-        height:21px;
-        background:url('../images/icons/save.svg') no-repeat;
-    }
-    &.icon-diagram{
+
+    &.icon-trash{
         width:21px;
         height:21px;
-        background:url('../images/icons/diagram.png') no-repeat;
-    }
-    &.icon-edit{
-        width:21px;
-        height:21px;
-        background:url('../images/icons/edit.png') no-repeat;
-    }
-    &.icon-calendar-nav{
-        width:21px;
-        height:21px;
-        background:url('../images/icons/calendar_nav.svg') no-repeat;
+        background:url('../images/icons/trash.svg') no-repeat;
     }
     &[class*="icon-"]{
         background-size:100% 100%;
@@ -153,7 +185,7 @@ body {
       ==================
   */
 .toolbar{
-    font-family: SFUITextRegular;
+    font-family: $font-family;
     .toolbar-inner{
         .tabbar-label{
             /*font-size:0.7em;*/
@@ -209,6 +241,72 @@ body {
   ==================
 */
 
+
+/*
+      ==================
+      [SETTINGS]
+      ==================
+*/
+.page-settings{
+    font-family:$font-family;
+    .content-block-title{
+        span{
+            text-transform: none;
+        }
+    }
+    .list-block{
+        margin:0px;
+        ul{
+            &:before{
+
+            }
+            .item-media{
+                .icon{
+
+                    &[class*="icon-"], &[class*="icon-"].active{
+                        background-size:100% 100%;
+                        background-position:center center;
+                    }
+                }
+            }
+            .item-inner{
+                .item-title{
+                    &.label{
+                        width:50%;
+                    }
+                }
+            }
+            .item-input{
+                text-align: right;
+            }
+        }
+    }
+    #clear-settings{
+        background: #fff;
+        position:relative;
+        &:before{
+            @include before();
+        }
+        &:after{
+            @include after-light();
+        }
+        a{
+            font-family: $font-family2;
+            margin-top:50px;
+            height:44px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            color:#FE3824;
+            &.button{
+                border:none;
+
+            }
+        }
+
+        
+    }
+}
 /*
 ==================
 [GRID]

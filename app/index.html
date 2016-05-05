@@ -28,7 +28,7 @@
         <div class="navbar">
             <div data-page="index" class="navbar-inner">
                 <div class="left">
-                    <a href="#" class="link icon-only">
+                    <a href="#add-trip" class="link icon-only">
                         <i class="icon icon-add"></i>
                     </a>
                 </div>
@@ -48,6 +48,19 @@
                 <div class="center sliding"><script>document.write(_w.global.pages_title[LN].settings);</script></div>
                 <div class="right"></div>
             </div>
+            <div data-page="add-trip" class="navbar-inner cached">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                    </a>
+                </div>
+                <div class="center sliding"><script>document.write(_w.global.pages_title[LN].add_trip);</script></div>
+                <div class="right">
+                    <a href="#" class="link icon-only">
+                        <i class="icon icon-trash"></i>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="pages navbar-fixed toolbar-fixed">
             <div data-page="index" class="page">
@@ -56,15 +69,22 @@
             <div data-page="settings" class="page cached">
                 <div class="page-content page-settings" ></div>
             </div>
+            <div data-page="add-trip" class="page cached">
+                <div class="page-content page-add-trip" ></div>
+            </div>
         </div>
     </div>
-    <div id="view-photo" class="view view-photo tab ">
+    <div id="view-photo" class="view view-photo tab">
         <!-- Navbars-->
         <div class="navbar">
-            <div data-page="calendar" class="navbar-inner">
+            <div data-page="photo" class="navbar-inner">
                 <div class="left"></div>
-                <div class="center sliding"><script>document.write(_w.global.pages_title[LN].calendar);</script></div>
-                <div class="right sliding"></div>
+                <div class="center sliding"><script>document.write(_w.global.pages_title[LN].photo);</script></div>
+                <div class="right sliding">
+                    <a href="#settings" class="link icon-only">
+                        <i class="icon icon-settings"></i>
+                    </a>
+                </div>
             </div>
             <div data-page="settings" class="navbar-inner cached">
                 <div class="left">
@@ -75,82 +95,25 @@
                 <div class="center sliding"><script>document.write(_w.global.pages_title[LN].settings);</script></div>
                 <div class="right"></div>
             </div>
-            <div data-page="calendar-settings" class="navbar-inner cached">
-                <div class="left">
-                    <a href="#" class="link back">
-                        <i class="icon icon-back"></i>
-                    </a>
-                </div>
-                <div class="center sliding"><script>document.write(_w.global.pages_title[LN].calendar_settings);</script></div>
-                <div class="right"></div>
-            </div>
         </div>
         <div class="pages navbar-fixed toolbar-fixed">
-            <div data-page="calendar" class="page with-subnavbar">
+            <div data-page="photo" class="page">
                 <!-- Scrollable page content-->
-                <div class="page-content hide-bars-on-scroll" id="page-calendar"> </div>
+                <div class="page-content" id="page-photo"> </div>
             </div>
             <div data-page="settings" class="page cached">
                 <div class="page-content page-settings"></div>
             </div>
-            <div data-page="calendar-settings" class="page cached">
-                <div class="page-content" id="page-filter">
-                    <!-- Search Bar -->
-                    <form class="searchbar searchbar-init">
-                        <div class="searchbar-input">
-                            <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
-                        </div><a href="#" class="searchbar-cancel">Cancel</a>
-                    </form>
-
-                    <!-- Search Bar overlay -->
-                    <div class="searchbar-overlay"></div>
-
-                    <div class="content-block-title">Filter</div>
-                    <!-- This block will be displayed if nothing found -->
-                    <div class="content-block searchbar-not-found">
-                        <div class="content-block-inner">Nothing found</div>
-                    </div>
-                    <!-- This block will be displayed if anything found, and this list block is used a searbar target -->
-                    <div class="list-block list-block-search searchbar-found">
-                        <ul>
-                            <li class="item-content">
-                                <div class="item-inner">
-                                    <div class="item-title">Acura </div>
-                                </div>
-                            </li>
-                            <li class="item-content">
-                                <div class="item-inner">
-                                    <div class="item-title">Audi</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
         </div>
     </div>
-    <div id="view-settings" class="view view-settings tab">
+    <div id="view-statistics" class="view view-statistics tab">
         <!-- Navbars-->
         <div class="navbar">
-            <div data-page="info" class="navbar-inner">
+            <div data-page="statistics" class="navbar-inner">
                 <div class="left"></div>
                 <div class="center sliding">
-                    <script>document.write(_w.global.pages_title[LN].info);</script>
+                    <script>document.write(_w.global.pages_title[LN].statistics);</script>
                 </div>
-                <div class="right sliding">
-                    <a href="#settings" class="link icon-only" >
-                        <i class="icon icon-settings"></i>
-                    </a>
-                </div>
-            </div>
-            <div data-page="info-one" class="navbar-inner cached">
-                <div class="left">
-                    <a href="#" class="link back">
-                        <i class="icon icon-back"></i>
-                    </a>
-                </div>
-                <div class="center sliding"><script>document.write(_w.global.pages_title[LN].info);</script></div>
                 <div class="right sliding">
                     <a href="#settings" class="link icon-only" >
                         <i class="icon icon-settings"></i>
@@ -168,13 +131,10 @@
             </div>
         </div>
         <div class="pages navbar-fixed toolbar-fixed">
-            <div data-page="info" class="page">
-                <div class="page-content" id="page-info">
+            <div data-page="statistics" class="page">
+                <div class="page-content" id="page-statistics">
 
                 </div>
-            </div>
-            <div data-page="info-one" class="page cached">
-                <div class="page-content" id="info-item"></div>
             </div>
             <div data-page="settings" class="page cached">
                 <div class="page-content page-settings"></div>
@@ -194,7 +154,7 @@
                 <i class="icon icon-photo"></i>
                 <span class="tabbar-label"><script>document.write(_w.global.pages_title[LN].photo);</script></span>
             </a>
-            <a href="#view-settings" class="link tab-link">
+            <a href="#view-statistics" class="link tab-link">
                 <i class="icon icon-statistics"></i>
                 <span class="tabbar-label"><script>document.write(_w.global.pages_title[LN].statistics);</script></span>
             </a>
@@ -205,21 +165,7 @@
 
 <!--build:js js/my-app.min.js -->
 <script src="js/tmp/webactivity.js"></script>
-<script src="js/lib/framework7.min.js"></script>
 <script src="js/tmp/library.js"></script>
-<!--<script src="js/welcomescreen.js"></script>
-
-<script src="js/IndexPageController.js"></script>
-<script src="js/InfoPageController.js"></script>
-<script src="js/my-app.js"></script>
-<script src="js/settings.js"></script>
-<script src="js/info.js"></script>
-<script src="js/home.js"></script>
-<script src="js/filter.js"></script>
-<script src="js/slider-swiper-calendar.js"></script>
-<script src="js/slider_swiper.js"></script>
-<script src="js/timer.js"></script>-->
-<!--<script src="js/scripts/init.js"></script>-->
 <script src="js/vendors.js"></script>
 <script src="js/bundle.js"></script>
 <!-- endbuild -->

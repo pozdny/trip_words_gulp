@@ -5,7 +5,7 @@
 var myapp = myapp || {};
 myapp.pages = myapp.pages || {};
 
-myapp.pages.IndexPageController = function (myapp, $$) {
+myapp.pages.IndexPageController = function (app, $$) {
     'use strict';
 
     // Welcomscreen method
@@ -32,7 +32,7 @@ myapp.pages.IndexPageController = function (myapp, $$) {
 
         ];
 
-        welcomescreen = myapp.welcomescreen(welcomescreen_slides, options);
+        welcomescreen = app.welcomescreen(welcomescreen_slides, options);
         $$(document).on('click', '.tutorial-close-btn', function () {
             welcomescreen.close();
         });
@@ -60,10 +60,7 @@ myapp.pages.IndexPageController = function (myapp, $$) {
         };
         delyed(hide_animation,1500);
 
-
     }());
-
-
 
 };
 

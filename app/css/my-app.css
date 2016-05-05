@@ -1,4 +1,9 @@
 /*
+   ===================
+   [MINXIN]
+   ===================
+*/
+/*
 	==================
 	[FONTS]
 	==================
@@ -7,6 +12,10 @@
   font-family: SFUIDisplayRegular;
   src: url(../fonts/SFUIDisplay-Regular.otf); }
 
+@font-face {
+  font-family: SFUITextRegular;
+  src: url(../fonts/SFUIText-Regular.otf); }
+
 /*
 	==================
 	[MAIN]
@@ -14,7 +23,10 @@
 */
 html {
   height: 100%;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
   -webkit-tap-highlight-color: transparent; }
@@ -26,7 +38,7 @@ body {
   overflow: hidden;
   font-size: 13px;
   position: relative;
-  font-family: SFUIDisplayRegular; }
+  font-family: "SFUIDisplayRegular"; }
 
 .page {
   background: #F1F1F5; }
@@ -37,8 +49,14 @@ body {
       ==================
   */
 .welcomescreen-container .swiper-slide {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center; }
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
   .welcomescreen-container .swiper-slide .welcome-icon {
     position: relative;
     margin: 0 auto; }
@@ -103,25 +121,10 @@ body {
   height: 21px;
   background: url("../images/icons/settings-icon.svg") no-repeat; }
 
-.navbar .navbar-inner .icon.icon-save {
-  width: 27px;
-  height: 21px;
-  background: url("../images/icons/save.svg") no-repeat; }
-
-.navbar .navbar-inner .icon.icon-diagram {
+.navbar .navbar-inner .icon.icon-trash {
   width: 21px;
   height: 21px;
-  background: url("../images/icons/diagram.png") no-repeat; }
-
-.navbar .navbar-inner .icon.icon-edit {
-  width: 21px;
-  height: 21px;
-  background: url("../images/icons/edit.png") no-repeat; }
-
-.navbar .navbar-inner .icon.icon-calendar-nav {
-  width: 21px;
-  height: 21px;
-  background: url("../images/icons/calendar_nav.svg") no-repeat; }
+  background: url("../images/icons/trash.svg") no-repeat; }
 
 .navbar .navbar-inner .icon[class*="icon-"] {
   background-size: 100% 100%;
@@ -133,7 +136,7 @@ body {
       ==================
   */
 .toolbar {
-  font-family: SFUITextRegular; }
+  font-family: "SFUIDisplayRegular"; }
   .toolbar .toolbar-inner .tabbar-label {
     /*font-size:0.7em;*/ }
   .toolbar .toolbar-inner .icon {
@@ -154,8 +157,7 @@ body {
     color: #929292; }
   .toolbar .toolbar-inner a.active {
     color: #0076FF; }
-  .toolbar .toolbar-inner i.icon[class*="icon-"],
-  .toolbar .toolbar-inner a.active i.icon[class*="icon-"] {
+  .toolbar .toolbar-inner i.icon[class*="icon-"], .toolbar .toolbar-inner a.active i.icon[class*="icon-"] {
     background-position: 50% 50%;
     pointer-events: none; }
   .toolbar .toolbar-inner a.active .icon.icon-home {
@@ -173,6 +175,79 @@ body {
   [MAIN]
   ==================
 */
+/*
+      ==================
+      [SETTINGS]
+      ==================
+*/
+.page-settings {
+  font-family: "SFUIDisplayRegular"; }
+  .page-settings .content-block-title span {
+    text-transform: none; }
+  .page-settings .list-block {
+    margin: 0px; }
+    .page-settings .list-block ul .item-media .icon[class*="icon-"], .page-settings .list-block ul .item-media .icon[class*="icon-"].active {
+      background-size: 100% 100%;
+      background-position: center center; }
+    .page-settings .list-block ul .item-inner .item-title.label {
+      width: 50%; }
+    .page-settings .list-block ul .item-input {
+      text-align: right; }
+  .page-settings #clear-settings {
+    background: #fff;
+    position: relative; }
+    .page-settings #clear-settings:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: auto;
+      right: auto;
+      height: 1px;
+      width: 100%;
+      background-color: #c8c7cc;
+      display: block;
+      z-index: 15;
+      -webkit-transform-origin: 50% 0;
+      transform-origin: 50% 0;
+      -webkit-transform: scaleY(0.5);
+              transform: scaleY(0.5); }
+    .page-settings #clear-settings:after {
+      content: '';
+      position: absolute;
+      left: auto;
+      bottom: 0;
+      right: 0;
+      top: auto;
+      height: 1px;
+      width: 100%;
+      background-color: #e7e6eb;
+      display: block;
+      z-index: 15;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+      -webkit-transform: scaleY(0.5);
+              transform: scaleY(0.5); }
+    .page-settings #clear-settings a {
+      font-family: "SFUITextRegular";
+      margin-top: 50px;
+      height: 44px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      color: #FE3824; }
+      .page-settings #clear-settings a.button {
+        border: none; }
+
 /*
 ==================
 [GRID]

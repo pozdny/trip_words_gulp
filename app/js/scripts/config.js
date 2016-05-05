@@ -1,7 +1,7 @@
 /**
  * Created by user on 26.04.16.
  */
-console.log('5555');
+
 var myapp = myapp || {};
 
 window.myApp = new Framework7(
@@ -18,9 +18,11 @@ window.myApp = new Framework7(
         // Enabled pages rendering using Template7
         template7Pages: true,
         // Specify Template7 data for pages
-        modalButtonCancel: _w.global.buttons.cancel[LN]
+        modalButtonCancel: _w.global.buttons.cancel[window.LN]
     });
-console.log('789');
+
+
+//console.log(myApp);
 // Export selectors engine
 window.$$ = Dom7;
     var fw7ViewOptions = {
@@ -31,7 +33,7 @@ window.$$ = Dom7;
 
 var mainView = myApp.addView('.view-main', fw7ViewOptions),
     photoView = myApp.addView('.view-photo', fw7ViewOptions),
-    infoView = myApp.addView('.view-settings', fw7ViewOptions);
+    infoView = myApp.addView('.view-statistics', fw7ViewOptions);
 
 // global
 window.n = {
@@ -58,6 +60,24 @@ if(LN !== "en" && LN !== "ru"){
 myApp.onPageInit('index', function (page) {
     //storageClear();
 });
+$$('#view-main').on('show', function (page) {
+    n.settings.init();
+});
+$$('#view-photo').on('show', function (page) {
+    n.settings.init();
+});
+$$('#view-statistics').on('show', function (page) {
+    n.settings.init();
+});
 
-myApp.init();
+myApp.onPageBeforeAnimation('*', function(page){
+    if($$(page.container).hasClass('smart-select-page')){
+        console.log('beforeAnimation');
+        //console.log('smart-select');
+        n.settings.smartSelectCustomChange(page.container);
+    }
+});
+module.exports = {
+    myApp: myApp
 
+};

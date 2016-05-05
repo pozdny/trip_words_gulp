@@ -3,12 +3,11 @@
  */
 'use strict';
 //задание языка
-var LN;
+window.LN = 'en';
 LN = navigator.language.substr(0, 2);
 if(LN !== "en" && LN !== "ru"){
     LN = "en";
 }
-
 var _w = {
     "global":{
         flashscreen:{
@@ -29,6 +28,7 @@ var _w = {
                 },
                 photo: "Quick Photo",
                 statistics: "Statistics",
+                add_trip: "Add Trip",
                 settings: "Settings"
             },
             ru:{
@@ -38,6 +38,7 @@ var _w = {
                 },
                 photo: "Фото",
                 statistics: "Статистика",
+                add_trip: "Добавить поездку",
                 settings: "Настройки"
             }
         },
@@ -49,6 +50,10 @@ var _w = {
             cancel:{
                 en:"Cancel",
                 ru:"Отмена"
+            },
+            clear:{
+                en:"Clear all",
+                ru:"Сбросить все"
             }
         }
     },
@@ -108,17 +113,70 @@ var _w = {
             month:"Август"
         }
     },
-
+    "currency":{
+        ru:[
+            {
+                name: "USD",
+                letter: "$"
+            },
+            {
+                name: "EUR",
+                letter:"&euro;"
+            },
+            {
+                name: "RUB",
+                letter: "₽"
+            },
+            {
+                name: "JPY",
+                letter: "&yen;"
+            },
+            {
+                name: "GBP",
+                letter: "&pound;"
+            },
+            {
+                name: "CNY",
+                letter: "&yen;"
+            }
+        ],
+        en:[
+            {
+                name: "USD",
+                letter: "$"
+            },
+            {
+                name: "EUR",
+                letter:"&euro;"
+            },
+            {
+                name: "RUB",
+                letter: "₽"
+            },
+            {
+                name: "JPY",
+                letter: "&yen;"
+            },
+            {
+                name: "GBP",
+                letter: "&pound;"
+            },
+            {
+                name: "CNY",
+                letter: "&yen;"
+            }
+        ]
+    },
     "notification": {
         en: {
-            title: "Summer Games 2016",
-            text: "Summer Games 2016",
-            ticker_text: "Summer Games 2016"
+            title: "Trip Words",
+            text: "Trip Words",
+            ticker_text: "Trip Words"
         },
         ru: {
-            title: "Летние Игры 2016",
-            text: "Летние Игры 2016",
-            ticker_text: "Летние Игры 2016"
+            title: "Trip Words",
+            text: "Trip Words",
+            ticker_text: "Trip Words"
         }
     },
     "settings":{

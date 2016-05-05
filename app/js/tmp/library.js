@@ -109,6 +109,7 @@ function backPage(pageName) {
     });
 }
 function backPageForSettings(pageName, view) {
+
     view.router.back({
         pageName: pageName,
         force: true,

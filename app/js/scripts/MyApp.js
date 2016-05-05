@@ -30,7 +30,7 @@ function createArrayStorage(n){
                 "lenguage": n.language,
                 "notifications": true,
                 "sounds": true,
-                "currency": true
+                "currency": 0
             },
             "categories":{},
             "data":{
@@ -38,12 +38,41 @@ function createArrayStorage(n){
             }
         };
         storageSet(n.key_storage.categories, storage);
-        //n.settings = myApp.settings({});
+        n.settings = myApp.settings({});
     }
 }
 
 function closeSettings(){
+    var activeView = myApp.getCurrentView(3);
+    switch(activeView.selector){
+        case ".view-main":
+            if(activeView.url === '#settings' || activeView.url === '#content-2'){
+                clearPageSettings(activeView.selector);
+                backPageForSettings('index', activeView);
+            }
+            break;
+        case ".view-photo":
+            if(activeView.url === '#settings' || activeView.url === '#content-2'){
+                clearPageSettings(activeView.selector);
+                backPageForSettings('photo', activeView);
+            }
+            break;
+        case ".view-statistics":
+            if(activeView.url === '#settings' || activeView.url === '#content-2'){
+                clearPageSettings(activeView.selector);
+                backPageForSettings('statistics', activeView);
+            }
+            break;
+        default: '';
 
+    }
+}
+
+function clearPageSettings(view){
+    var page_settings = $$(view).find('.page-settings');
+    if(page_settings.length > 0){
+        page_settings.html('');
+    }
 }
 
 module.exports = {

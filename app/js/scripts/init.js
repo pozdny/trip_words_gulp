@@ -6,13 +6,19 @@
 require('framework7');
 var config = require('./config');
 var my_app = require('./MyApp');
-var welcomescreen_p = require('./welcomescreen');
+// модули
+require('./welcomescreen');
+require('./settings');
+// контрорллеры
 var pages  = require('./IndexPageController');
 var myapp = myapp || {};
 
 
+
+myApp.init();
+
 document.addEventListener("DOMContentLoaded", function(event) {
-    storageClear();
+    //storageClear();
     // Init method
     if(!storageGet(n.key_storage.categories)){
         // заносим категории по умолчанию
@@ -20,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
     else{
         console.log('init');
+        n.settings = myApp.settings();
     }
 
     n.JSAPI = JSAPI;
@@ -39,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         ipc = new pages.page_index(fw7App, $$);
 
     $$(document.body).on('click','.toolbar .link', function(e){
-        //closeSettings();
+        my_app.closeSettings();
     });
 
 });
