@@ -29,6 +29,7 @@ var _w = {
                 photo: "Quick Photo",
                 statistics: "Statistics",
                 add_trip: "Add Trip",
+                edit_trip: "Edit Trip",
                 settings: "Settings"
             },
             ru:{
@@ -39,6 +40,7 @@ var _w = {
                 photo: "Фото",
                 statistics: "Статистика",
                 add_trip: "Добавить поездку",
+                edit_trip: "Редактировать поездку",
                 settings: "Настройки"
             }
         },
@@ -60,6 +62,10 @@ var _w = {
     "dif_filds":{
         en:{
             name:"Name",
+            spend_sum:"Spend",
+            limit_sum:"Limit",
+            limit_spend_sum:"Spend/Limit",
+            categories: "Categories",
             filter: "Filter",
             search: "Search",
             cancel: "Cancel",
@@ -86,7 +92,11 @@ var _w = {
             month:"August"
         },
         ru:{
-            name:"Название тренировки",
+            name:"Название поездки",
+            spend_sum:"Потрачено",
+            limit_sum:"Лимит",
+            limit_spend_sum:"Потрачено/Лимит",
+            categories: "Категории",
             filter: "Фильтр",
             search: "Поиск",
             cancel: "Отмена",
@@ -245,6 +255,10 @@ var _w = {
         no_statistics:{
             en:"No Statistics",
             ru:"Нет статистики"
+        },
+        add:{
+            en:"Add your first trip",
+            ru:"Добавьте первую поездку"
         }
 
 

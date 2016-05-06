@@ -10,15 +10,13 @@ var my_app = require('./MyApp');
 require('./welcomescreen');
 require('./settings');
 // контрорллеры
-var pages  = require('./IndexPageController');
+var pages  = require('./PagesControllers');
 var myapp = myapp || {};
-
-
 
 myApp.init();
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    //storageClear();
+    storageClear();
     // Init method
     if(!storageGet(n.key_storage.categories)){
         // заносим категории по умолчанию
@@ -42,8 +40,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Initialize app
 
     var fw7App = myApp,
-        $$ = Dom7,
-        ipc = new pages.page_index(fw7App, $$);
+        $$ = Dom7;
+        n.page_index = new pages.page_index(fw7App, $$),
+        n.page_home = new pages.page_home(fw7App, $$),
+        n.page_trip = new pages.page_trip(fw7App, $$);
 
     $$(document.body).on('click','.toolbar .link', function(e){
         my_app.closeSettings();

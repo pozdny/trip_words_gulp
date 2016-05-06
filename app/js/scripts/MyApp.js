@@ -14,16 +14,16 @@ function createArrayStorage(n){
         var cat = {},
             category_arr = [],
             language_arr = ["en", "ru"];
-        $$.each(language_arr, function(i, val){
+        $$.each(language_arr, function(i, val){  console.log(i);
             category_arr = [];
-            /*$$.each(categories, function(z, val1){
+            $$.each(categories, function(z, val1){    console.log(z);
                 category_arr.push({
                     id: z,
-                    name:_w.categories[val][z].name,
+                    name:_w.categories[val].name,
                     icon:z
                 });
             });
-            cat[val] = category_arr;*/
+            cat[val] = category_arr;
         });
         storage = {
             "settings":{
@@ -32,9 +32,24 @@ function createArrayStorage(n){
                 "sounds": true,
                 "currency": 0
             },
-            "categories":{},
+            "categories":cat,
             "data":{
-
+                 tripArr:[
+                     {
+                         "date_create": 1462437173681,
+                         "name": "Trip 1",
+                         "sum": 0
+                     },
+                     {
+                         "date_create": 1462437175681,
+                         "name": "Trip 2",
+                         "sum": 2
+                     },
+                     {
+                         "date_create": 1462437176681,
+                         "name": "Trip 3",
+                         "sum": 3
+                     }]
             }
         };
         storageSet(n.key_storage.categories, storage);

@@ -115,23 +115,7 @@ Framework7.prototype.plugins.settings = function (app, globalPluginParams) {
             drowView();
             onChangeButtonAction();
         }
-        function ClickLiAction(){
-            /*var that = $$(this);
-            console.log('click li');
-            //that.off('click', ClickLiAction);
-            var virtual_list = mainPagesContainer.find('.virtual-list');
-            var formData = myApp.formToJSON('.virtual-list');
-            console.log(formData);*/
-        }
-        function initVirtualListClick(pageContainer){
-            /*pageContainer = $$(pageContainer);
-            var list_block;
-            list_block = pageContainer.find('.list-block');
-            console.log(list_block);*/
-            //pageContainer.off('click','.virtual-list li', ClickLiAction);
-            //pageContainer.on('click', '.virtual-list li', ClickLiAction);
 
-        }
         function getCurrentCurrency(){
             var str = '';
             $$.each(self.data.currencyArr, function(i, val){
@@ -168,7 +152,6 @@ Framework7.prototype.plugins.settings = function (app, globalPluginParams) {
             var inputs,
                 value;
             inputs = pageContainer.find('.list-block li input');
-            console.log(inputs);
             inputs.on('change', function(){
                 console.log($$(this));
                 value = Number($$(this).val());

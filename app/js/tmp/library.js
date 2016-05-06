@@ -176,8 +176,8 @@ Date.prototype.getShortDate = function () {
 };
 // международный формат даты
 Date.prototype.getShortDateM = function () {
-    return leadingZero(this.getDate()) + '.' +
-        leadingZero(this.getMonth() + 1) + '.' +
+    return leadingZero(this.getDate()) + '/' +
+        leadingZero(this.getMonth() + 1) + '/' +
         this.getFullYear();
 };
 // формат даты c название месяца
